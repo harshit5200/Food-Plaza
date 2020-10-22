@@ -1,0 +1,19 @@
+.alt-cart{
+    text-align: center;
+}
+.cart-card{
+    text-align: center;
+}
+.clear-cart-btn{
+    height: 40px;
+    width: 20rem;
+    margin: 3rem;
+}
+.order-now-btn{
+    height: 40px;
+    width: 20rem;
+    margin: 3rem;
+}
+.amount-to-pay{
+    font-family: 'Baloo Da 2';
+}

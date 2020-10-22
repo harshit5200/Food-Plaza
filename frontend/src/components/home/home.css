@@ -1,0 +1,22 @@
+.carousel-height img{
+    height: 35rem !important;
+    object-fit: cover;
+}
+.home-search{
+    padding-top: 3%;
+    padding-left: 20%;
+}
+.home-search-bar{
+    width: 65%;
+}
+.home-body{
+    overflow-x: hidden;
+}
+.search-btn{
+    background-color: white !important;
+    color: black !important;
+    border: none !important;
+}
+.search-btn{
+    margin-left: 20px;
+}

@@ -1,0 +1,25 @@
+.menu-title{
+    height: 15rem;
+    background-color: #005062;
+}
+.title-image{
+    height: 12rem;
+    margin-top: 12px;
+}
+.menu-title-head{
+    font-family: 'Baloo Da 2';
+    color: white;
+    padding-left: 20%;
+    margin-top: 5%;
+}
+.menu-title-sub-head{
+    font-family: 'Baloo Da 2';
+    color: white;
+    padding-left: 20%;
+}
+.food-card-box{
+    margin-left: 10% !important;
+}
+.food-menu-page{
+    overflow-x: hidden;
+}

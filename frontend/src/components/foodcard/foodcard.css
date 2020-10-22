@@ -1,0 +1,44 @@
+.food-card{
+    border-radius: 10px;
+    box-shadow: aliceblue 6px 6px 6px;
+    text-align: center;
+    font-family: "Baloo Da 2";
+    margin-left: 4%;
+    margin-top: 3%;
+}
+
+.food-card-name .food-card-subtitle .{
+    font-family: "Baloo Da 2";
+}
+.food-card-details{
+    display: flex;
+}
+.food-card-price{
+    margin-left: 20%;
+}
+.food-card-rating{
+    margin-left: 16%;
+}
+.food-card-type{
+    margin-left:15%;
+}
+.minus-btn{
+    margin-left: 20%;
+    background-color: white !important;
+    border: none !important;
+    color: black !important;
+    height: fit-content;
+    margin-right: 30px !important;
+    border: 1px solid black !important;
+}
+.plus-btn{
+    background-color: white !important;
+    border: none !important;
+    color: black !important;
+    height: fit-content;
+    margin-left: 30px !important;
+    border: 1px solid black !important;
+}
+.food-card-quantity{
+    font-size: 20px;
+}

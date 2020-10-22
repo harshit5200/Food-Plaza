@@ -1,0 +1,48 @@
+.login-btn{
+    background-color: #FFD344 !important;
+    border: none !important;
+    width: 80%!important;
+    height: 50px!important;
+    border-radius: 10px !important;
+    margin-left: 10%;
+    margin-top: 5%;
+    color: black !important;
+}
+.login-btn:hover{
+    background-color: white !important;
+    border: 2px solid #FFD344 !important;
+}
+.login-input{
+    width: 80% !important;
+    height: 50px !important;
+    margin-left: 10% !important;
+    font-family: 'Baloo Da 2';  
+    margin-bottom: 5% !important;
+}
+.login-box{
+    margin-left: 34%;
+    padding: 3%;
+    background-color: #FFFFFF;
+    margin-right: 34%;
+    margin-top: 5%;
+    padding-bottom: 8%;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px;
+    font-family: 'Baloo Da 2';
+}
+.login-title{
+    margin-left: 36%;
+    margin-bottom: 1%;
+    font-family: 'Dancing Script';
+    font-weight: 700;
+}
+.login-subtitle{
+    margin-left: 35%;
+    margin-bottom: 10%;
+    font-family: 'Dancing Script';
+    font-weight: bold;
+}
+.login-form{
+    background-color: #FFD344;
+    height: 58.5rem;
+}

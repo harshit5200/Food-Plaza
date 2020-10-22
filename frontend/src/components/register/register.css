@@ -1,0 +1,50 @@
+.register-btn{
+    background-color: #FFD344 !important;
+    border: none !important;
+    width: 60% !important;
+    height: 50px!important;
+    border-radius: 10px !important;
+    margin-left: 20%;
+    color: black !important;
+}
+.register-btn:hover{
+    background-color: white !important;
+    border: 2px solid #FFD344 !important;
+}
+.register-input{
+    width: 60% !important;
+    height: 50px !important;
+    border-radius: 10px !important;
+    margin-left: 20% !important;
+    margin-bottom: 2.5% !important;
+    font-family: 'Baloo Da 2';
+}
+.register-box{
+    margin-left: 32%;
+    padding: 2%;
+    background-color: #FFFFFF;
+    margin-right: 32%;
+    padding-bottom: 1%;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px;
+    font-family: 'Baloo Da 2';
+    padding-bottom: 25px;
+}
+.register-subtitle{
+    padding-bottom: 3%;
+    margin-left: 30%;
+    font-family: 'Dancing Script';
+    font-weight: bold;
+}
+.register-form{
+    background-color: #FFD344;
+    height: 58.5rem;
+}
+.register-name{
+    display: flex;
+    margin-left: 6%;
+}
+.register-place{
+    display: flex;
+    margin-left: 6%;
+}

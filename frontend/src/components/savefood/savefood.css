@@ -1,0 +1,55 @@
+.food-btn{
+    background-color: #FFD344 !important;
+    border: none !important;
+    width: 80% !important;
+    height: 50px!important;
+    border-radius: 10px !important;
+    margin-left: 10%;
+    color: black !important;
+}
+.food-input{
+    border: 2px solid #FFD344 !important;
+    width: 80% !important;
+    height: 50px !important;
+    border-radius: 10px !important;
+    margin-left: 10%;
+}
+.food-box{
+    padding-top: 3%;
+    margin-left: 32%;
+    padding: 2%;
+    background-color: #FFFFFF;
+    margin-right: 32%;
+    padding-bottom: 1%;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px;
+    font-family: 'Baloo Da 2';
+    padding-bottom: 25px;
+}
+.food-title{
+    margin-left: 36%;
+    font-family: 'Dancing Script';
+}
+.food-subtitle{
+    margin-left: 35%;
+    font-family: 'Dancing Script';
+}
+.food-form{
+    background-color: #FFD344;
+    height: 52.5rem;
+}
+.food-name{
+    display: flex;
+    margin-left: 6%;
+}
+.food-place{
+    display: flex;
+    margin-left: 6%;
+}
+.fill-space{
+    background-color: #FFD344;
+    height: 97px;
+}
+.food-file-input{
+    
+}
