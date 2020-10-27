@@ -2,21 +2,21 @@
     height: 35rem !important;
     object-fit: cover;
 }
-.home-search{
-    padding-top: 3%;
-    padding-left: 20%;
-}
-.home-search-bar{
-    width: 65%;
-}
+
 .home-body{
     overflow-x: hidden;
+    text-align: center !;
+    font-family: 'Baloo Da 2';
 }
-.search-btn{
-    background-color: white !important;
-    color: black !important;
-    border: none !important;
-}
-.search-btn{
-    margin-left: 20px;
+.home-menu-btn{
+    text-decoration: none !important;
+    color: black;
+    background-color: white;
+    padding:1rem;
+    width: 25%;
+    box-shadow: aliceblue 6px 6px 6px;  
+    border: 1px solid #FFD344;
+    background-color: #FFD344;
+    margin-left: 38%;
+    margin-top: 3%;
 }

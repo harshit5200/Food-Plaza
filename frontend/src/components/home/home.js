@@ -1,19 +1,16 @@
 import React, {Component} from 'react';
 import AppNavbar from '../navigation/navigation'
 import './home.css';
-import { Carousel, Button } from 'react-bootstrap';
+import { Carousel} from 'react-bootstrap';
 import Slide1 from './Slide1.jpg';
 import Slide2 from './Slide2.jpg';
 import Slide3 from './Slide3.jpg';
-import {TextField} from '@material-ui/core';
-import FeatherIcon from 'feather-icons-react';
+import Footer from '../footer/footer'
 
 class Home extends Component{
 
-    onChange = e => {
-        this.setState({
-            [e.target.name] : e.target.value
-        })
+    pageTransform(){
+        window.location.href="/foodmenu "
     }
 
     render(){
@@ -43,10 +40,8 @@ class Home extends Component{
                         />
                     </Carousel.Item>
                 </Carousel>
-                <div className="row home-search">
-                    <TextField id="outlined-basic" label="Searching For Food?" variant="outlined"  name="searchBar" onChange={this.onChange} type="text" className="home-search-bar"/>
-                    <Button className="search-btn"><FeatherIcon icon="search" /></Button>
-                </div>
+                <button className="home-menu-btn" onClick={this.pageTransform.bind(this)}>Hungry? Grab Your Food</button>
+                <Footer></Footer>
             </div>
         );
     }

@@ -3,22 +3,26 @@
     border: none !important;
     width: 60% !important;
     height: 50px!important;
-    border-radius: 10px !important;
     margin-left: 20%;
     color: black !important;
-}
-.register-btn:hover{
-    background-color: white !important;
-    border: 2px solid #FFD344 !important;
+    box-shadow: aliceblue 6px 6px 6px;
 }
 .register-input{
     width: 60% !important;
     height: 50px !important;
-    border-radius: 10px !important;
     margin-left: 20% !important;
     margin-bottom: 2.5% !important;
     font-family: 'Baloo Da 2';
+    text-indent: 1%;
+    border: 1px solid #FFD344;
+    box-shadow: aliceblue 6px 6px 6px;
 }
+
+.register-input::placeholder{
+    padding-left: 1%;
+    color: #000000;
+}
+
 .register-box{
     margin-left: 32%;
     padding: 2%;

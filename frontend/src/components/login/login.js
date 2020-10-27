@@ -4,7 +4,6 @@ import {Form, Button ,Alert} from 'react-bootstrap';
 import {AuthContext} from '../../context/AuthContext';
 import AppNavbar from '../navigation/navigation';
 import './login.css';
-import {TextField} from '@material-ui/core';
 
 class Login extends Component{
 
@@ -63,8 +62,8 @@ class Login extends Component{
                     {this.state.message ? (
                         <Alert variant={this.state.variant}>{this.state.message}</Alert>
                     ) : null }
-                <TextField id="outlined-basic" label="Email" variant="outlined"  name="email" onChange={this.onChange} type="email" className="login-input"/>
-                <TextField id="outlined-basic" label="Password" variant="outlined" name="password" onChange={this.onChange} type="password" className="login-input" />
+                <input name="email" onChange={this.onChange} type="email" className="login-input" placeholder="Email" />
+                <input name="password" onChange={this.onChange} type="password" className="login-input" placeholder="Password" />
                 <Button type="submit" className="login-btn">Sign In</Button>
             </Form>
         </div>

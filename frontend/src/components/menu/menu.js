@@ -3,6 +3,8 @@ import AppNavbar from '../navigation/navigation';
 import './menu.css';
 import menu from './f-menu.png';
 import FoodCard from '../foodcard/foodcard';
+import Footer from '../footer/footer';
+import FeatherIcon from 'feather-icons-react';
 
 
 class FoodMenu extends Component{
@@ -21,6 +23,17 @@ class FoodMenu extends Component{
             variant: "success", 
         }
       }
+
+      onChange = e => {
+        this.setState({
+            [e.target.name] : e.target.value
+        })
+    }
+
+      searchFood(){
+          console.log(this.state.searchItem)
+      }
+
     componentDidMount(){
         fetch('http://localhost:5000/api/retrievefood')
           .then(Foods => Foods.json())
@@ -43,7 +56,11 @@ class FoodMenu extends Component{
             </div>
             </div>
             </div>
-            <div className="container-fluid">
+            <div className="container">
+            <div className="row searchBar">
+              <input className="searchInput" name="searchItem" placeholder="Search For Food!" onChange={this.onChange} ></input>
+              <button className="searchBtn" onClick={this.searchFood.bind(this)}><FeatherIcon icon="search" className="searchIcon"></FeatherIcon></button>
+            </div>
             <div className="row">
             {
                 this.state.Foods.map(Food => (
@@ -52,6 +69,7 @@ class FoodMenu extends Component{
               }
             </div>
             </div>
+            <Footer></Footer>
             </div>
         );
     }

@@ -6,7 +6,8 @@ import emptyCart from './emptyCart.png'
 import { confirmAlert } from 'react-confirm-alert'; 
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import {AuthContext} from '../../context/AuthContext';
-import Login from '../login/login';
+import Rating from '../rating/rating';
+import Footer from '../footer/footer'
 
 class Cart extends Component{
     static contextType = AuthContext
@@ -67,10 +68,9 @@ class Cart extends Component{
     }
     }
     render(){
-      if (this.context.isAuthenticated)
-      {
       if(localStorage.getItem('itemsArray')){
             return(
+              <div>
                 <div className="cart-card">
                 <AppNavbar></AppNavbar>
                 <div className="container">
@@ -85,12 +85,10 @@ class Cart extends Component{
                     <Card.Img variant="top" src={`http://localhost:5000/images/${Cart.foodImage}`}/>
                     <Card.Body>
                         <Card.Title className="food-card-name">{Cart.foodName}</Card.Title>
-                        <br />
-                        <div className="food-card-details">
-                            <Card.Text className="food-card-type">{Cart.foodType}</Card.Text>
-                            <Card.Text className="food-card-rating">{Cart.foodRating}</Card.Text>
-                            <Card.Text className="food-card-price">Rs {Cart.foodPrice}</Card.Text>
-                        </div>
+                        <Card.Text className="food-card-type">{Cart.foodType}</Card.Text>
+                        <Rating rating={Cart.foodRating}></Rating>
+                        <br/>
+                        <Card.Text className="food-card-price">₹ {Cart.foodPrice}</Card.Text>
                         <Card.Text className="food-card-limit">Quantity: {Cart.limit}</Card.Text>
                     </Card.Body>
                     </Card>
@@ -99,6 +97,8 @@ class Cart extends Component{
                 </div>
                 </div>
                 </div>
+                <Footer></Footer>
+                </div>
             );
         }
         else{
@@ -106,29 +106,10 @@ class Cart extends Component{
                 <div className="alt-cart">
                 <AppNavbar></AppNavbar>
                 <img src={emptyCart} className="cart-image" alt="Empty Cart" />
+                <Footer></Footer>
                 </div> 
             );
         }
-      }
-      else{
-        confirmAlert({
-          title: 'Food Plaza',
-          message: 'First Login To View Cart',
-          buttons: [
-            {
-              label: 'CONFIRM',
-              onClick: () => {
-                return(
-                  <Login></Login>
-                );
-              }
-            },
-          ]
-        });
-        return(
-          <Login></Login>
-        );
-      }
     }
 }
 

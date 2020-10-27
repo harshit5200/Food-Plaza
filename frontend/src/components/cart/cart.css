@@ -17,3 +17,9 @@
 .amount-to-pay{
     font-family: 'Baloo Da 2';
 }
+.food-card-limit{
+    font-weight: 600;
+}
+.food-card-name{
+    font-weight: 700;
+}

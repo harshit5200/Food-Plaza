@@ -7,13 +7,6 @@
     margin-left: 10%;
     color: black !important;
 }
-.food-input{
-    border: 2px solid #FFD344 !important;
-    width: 80% !important;
-    height: 50px !important;
-    border-radius: 10px !important;
-    margin-left: 10%;
-}
 .food-box{
     padding-top: 3%;
     margin-left: 32%;
@@ -50,6 +43,11 @@
     background-color: #FFD344;
     height: 97px;
 }
-.food-file-input{
-    
+
+input[type="file"]{
+    width: 82%;
+    color: #FFD344;
+    box-shadow: aliceblue 6px 6px 6px;
+    padding:10px;
+    margin-left: 8%;
 }

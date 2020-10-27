@@ -4,6 +4,7 @@ import {Card, Button} from 'react-bootstrap';
 import { confirmAlert } from 'react-confirm-alert'; 
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import FeatherIcon from 'feather-icons-react';
+import Rating from '../rating/rating';
 
 class FoodCard extends Component{
 
@@ -62,11 +63,9 @@ class FoodCard extends Component{
             <Card.Body>
                 <Card.Title className="food-card-name">{this.props.foodName}</Card.Title>
                 <Card.Subtitle>{this.props.foodDescription}</Card.Subtitle><br />
-                <div className="food-card-details">
-                    <Card.Text className="food-card-type">{this.props.foodType}</Card.Text>
-                    <Card.Text className="food-card-rating">{this.props.foodRating}</Card.Text>
-                    <Card.Text className="food-card-price">Rs {this.props.foodPrice}</Card.Text>
-                </div>
+                <Card.Text className="food-card-type">{this.props.foodType}</Card.Text>
+                <Rating rating={this.props.foodRating}></Rating><br/>
+                <Card.Text className="food-card-price">Rs {this.props.foodPrice}</Card.Text>
                 <div className="row cart-counter">
                     <Button className="minus-btn" onClick={this.handleDecrement.bind()} ><FeatherIcon icon="minus" /></Button>
                     <Card.Text className="food-card-quantity">{this.state.counter}</Card.Text>

@@ -22,4 +22,32 @@
 }
 .food-menu-page{
     overflow-x: hidden;
+    font-family: 'Baloo Da 2';
+}
+.searchBar{
+    margin-top: 4%;
+    margin-left: 12% !important;
+    border: 1px solid #FFD344;
+    width: 70%;
+    box-shadow: aliceblue 6px 6px 6px;
+}
+
+.searchInput{
+    width: 95%;
+    height: 3rem;
+    text-indent: 1%;
+    border: none;
+}
+.searchInput::placeholder{
+    padding-left: 1%;
+    color: #000000;
+}
+
+.searchBtn{
+    border: none;
+    background-color: transparent;
+    width: 5%;
+}
+.searchIcon{
+    color: #FFD344;
 }

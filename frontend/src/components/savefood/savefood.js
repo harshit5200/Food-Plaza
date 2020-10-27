@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Form, Button , Alert} from 'react-bootstrap';
-import FeatherIcon from 'feather-icons-react';
 import './savefood.css';
 
 class FoodForm extends Component{
@@ -28,6 +27,7 @@ class FoodForm extends Component{
     }
 
     onSubmit = e => {
+        console.log(this.state.foodRating, this.state.foodType)
         var fd = new FormData();
         fd.append("foodName", this.state.foodName);
         fd.append("foodType", this.state.foodType);
@@ -58,24 +58,23 @@ class FoodForm extends Component{
                 <Alert variant={this.state.variant}>{this.state.message}</Alert>
             ) : null}
             </Form.Group>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Control type="text" placeholder="Enter Name" onChange={this.onChange} name = "foodName" className="food-input"/>
-                </Form.Group>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Control type="text" placeholder="Enter Type" onChange={this.onChange} name = "foodType" className="food-input"/>
-                </Form.Group>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Control type="text" placeholder="Enter Rating" onChange={this.onChange} name = "foodRating" className="food-input"/>
-                </Form.Group>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Control type="text" placeholder="Enter Description" onChange={this.onChange} name = "foodDescription" className="food-input"/>
-                </Form.Group>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Control type="text" placeholder="Enter Price" onChange={this.onChange} name = "foodPrice" className="food-input"/>
-                </Form.Group>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Control type="file"  onChange={this.fileUpload} name = "foodImage" className="food-input"/>
-                </Form.Group>
+                <input name="foodName" onChange={this.onChange} type="text" className="login-input" placeholder="Food Name"/>
+                <select onChange={this.onChange} name="foodType" className="login-input">
+                    <option value="">Food Type</option>
+                    <option value="Veg">Veg</option>
+                    <option value="Non-Veg">Non-Veg</option>
+                </select>
+                <select onChange={this.onChange} name="foodRating" className="login-input">
+                    <option value="">Food Rating</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <input name="foodDescription" onChange={this.onChange} type="text" className="login-input" placeholder="Food Description"/>
+                <input name="foodPrice" onChange={this.onChange} type="text" className="login-input" placeholder="Food Price"/>
+                <input type="file" name="foodImage" onChange={this.fileUpload}/>   
                 <Button type="submit" className="btn login-btn">Save Food</Button>
                 </Form>
             </div>

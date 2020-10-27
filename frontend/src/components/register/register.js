@@ -4,7 +4,6 @@ import {AuthContext} from '../../context/AuthContext';
 import {register} from '../../actions/Auth';
 import AppNavbar from '../navigation/navigation'
 import './register.css';
-import {TextField} from '@material-ui/core';
 
 class Register extends Component{
 
@@ -71,16 +70,16 @@ class Register extends Component{
                 <Alert variant={this.state.variant}>{this.state.message}</Alert>
             ) : null}
             </Form.Group>
-                <TextField id="outlined-basic" label="Email" variant="outlined"  name="email" onChange={this.onChange} type="email" className="register-input"/>
-                <TextField id="outlined-basic" label="First Name" variant="outlined"  name="firstName" onChange={this.onChange} type="text" className="register-input"/>
-                <TextField id="outlined-basic" label="Last Name" variant="outlined"  name="lastName" onChange={this.onChange} type="text" className="register-input"/>
-                <TextField id="outlined-basic" label="Password" variant="outlined"  name="password" onChange={this.onChange} type="password" className="register-input"/>
-                <TextField id="outlined-basic" label="Mobile No" variant="outlined"  name="mobileNo" onChange={this.onChange} type="text" className="register-input"/>
-                <TextField id="outlined-basic" label="Address" variant="outlined"  name="address" onChange={this.onChange} type="text" className="register-input"/>
-                <TextField id="outlined-basic" label="City" variant="outlined"  name="city" onChange={this.onChange} type="text" className="register-input"/>
-                <TextField id="outlined-basic" label="Pincode" variant="outlined"  name="pincode" onChange={this.onChange} type="text" className="register-input"/>
-                <TextField id="outlined-basic" label="State" variant="outlined"  name="state" onChange={this.onChange} type="text" className="register-input"/>
-                <Button type="submit" className="btn register-btn">Sign In</Button>
+                <input name="email" onChange={this.onChange} type="email" className="register-input" placeholder="Email" />
+                <input name="firstName" onChange={this.onChange} type="text" className="register-input" placeholder="First Name" />
+                <input name="lastName" onChange={this.onChange} type="text" className="register-input" placeholder="Last Name" />
+                <input name="password" onChange={this.onChange} type="password" className="register-input" placeholder="Password" />
+                <input name="mobileNo" onChange={this.onChange} type="text" className="register-input" placeholder="Contact No." />
+                <input name="address" onChange={this.onChange} type="text" className="register-input" placeholder="Address" />
+                <input name="city" onChange={this.onChange} type="text" className="register-input" placeholder="City" />
+                <input name="pincode" onChange={this.onChange} type="text" className="register-input" placeholder="Pincode" />
+                <input name="state" onChange={this.onChange} type="text" className="register-input" placeholder="State" />
+                <Button type="submit" className="register-btn">Sign In</Button>
                 </Form>
             </div>
         );
@@ -88,3 +87,4 @@ class Register extends Component{
 }
 
 export default Register;
+

@@ -3,14 +3,10 @@
     border: none !important;
     width: 80%!important;
     height: 50px!important;
-    border-radius: 10px !important;
     margin-left: 10%;
     margin-top: 5%;
     color: black !important;
-}
-.login-btn:hover{
-    background-color: white !important;
-    border: 2px solid #FFD344 !important;
+    box-shadow: aliceblue 6px 6px 6px;
 }
 .login-input{
     width: 80% !important;
@@ -18,7 +14,16 @@
     margin-left: 10% !important;
     font-family: 'Baloo Da 2';  
     margin-bottom: 5% !important;
+    text-indent: 1%;
+    border: 1px solid #FFD344;
+    box-shadow: aliceblue 6px 6px 6px;
 }
+
+.login-input::placeholder{
+    padding-left: 1%;
+    color: #000000;
+}
+
 .login-box{
     margin-left: 34%;
     padding: 3%;
