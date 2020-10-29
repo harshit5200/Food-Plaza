@@ -31,15 +31,44 @@ class FoodMenu extends Component{
     }
 
       searchFood(){
-          console.log(this.state.searchItem)
+          var fd = new FormData();
+          if (this.state.searchItem){
+          fd.append("searchItem", this.state.searchItem);
+          fetch("http://localhost:5000/api/searchfood",{
+            method: 'POST',
+            body:fd,
+        }).then(Foods => Foods.json())
+            .then(Foods => this.setState({Foods:Foods}))
       }
+    }
 
     componentDidMount(){
         fetch('http://localhost:5000/api/retrievefood')
           .then(Foods => Foods.json())
             .then(Foods => this.setState({Foods:Foods}))
           }    
-    
+
+    filterSearch(){
+      if (this.state.filterItem === 'A-Z'){
+        fetch('http://localhost:5000/api/filtername')
+          .then(Foods => Foods.json())
+            .then(Foods => this.setState({Foods:Foods}))
+      }
+      if (this.state.filterItem === 'Price'){
+        fetch('http://localhost:5000/api/filterprice')
+          .then(Foods => Foods.json())
+            .then(Foods => this.setState({Foods:Foods}))
+      }
+      if (this.state.filterItem === 'Rating'){
+        fetch('http://localhost:5000/api/filterrating')
+          .then(Foods => Foods.json())
+            .then(Foods => this.setState({Foods:Foods}))
+      }
+    }
+
+    cancelSearch(){
+      window.location.reload();
+    }
 
     render(){
         return(
@@ -56,15 +85,26 @@ class FoodMenu extends Component{
             </div>
             </div>
             </div>
-            <div className="container">
+            <div className="container-fluid">
+            <div className="row">
             <div className="row searchBar">
               <input className="searchInput" name="searchItem" placeholder="Search For Food!" onChange={this.onChange} ></input>
               <button className="searchBtn" onClick={this.searchFood.bind(this)}><FeatherIcon icon="search" className="searchIcon"></FeatherIcon></button>
+              <button className="searchBtn" onClick={this.cancelSearch.bind(this)}><FeatherIcon icon="x-circle" className="searchIcon"></FeatherIcon></button>
+            </div>
+            <div className="filter-bar">
+            <select className="filterItem" onChange={this.onChange} onClick={this.filterSearch.bind(this)} name="filterItem">
+              <option>Filter</option>
+              <option value="A-Z">A-Z</option>
+              <option value="Price">Price</option>
+              <option value="Rating">Rating</option>
+            </select>
+            </div>
             </div>
             <div className="row">
             {
                 this.state.Foods.map(Food => (
-                    <FoodCard key = {Food._id} id = {Food._id} foodName={Food.foodName} foodType={Food.foodType} foodDescription={Food.foodDescription} foodRating={Food.foodRating} foodPrice={Food.foodPrice} foodImage={Food.foodImage}></FoodCard>
+                    <FoodCard className="menu-food-item"  key = {Food._id} id = {Food._id} foodName={Food.foodName} foodType={Food.foodType} foodDescription={Food.foodDescription} foodRating={Food.foodRating} foodPrice={Food.foodPrice} foodImage={Food.foodImage}></FoodCard>
                 ))
               }
             </div>

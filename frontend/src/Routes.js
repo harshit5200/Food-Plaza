@@ -9,6 +9,10 @@ import FoodForm from './components/savefood/savefood';
 import FoodMenu from './components/menu/menu';
 import UserList from './components/userlist/userlist'
 import Cart from './components/cart/cart'
+import AboutUs from './components/aboutus/about';
+import FoodList from './components/foodlist/foodlist'
+import Order from './components/order/order'
+import OrderList from './components/orderlist/orderlist'
 
 const Route = require('react-router-dom').Route;
 
@@ -40,6 +44,10 @@ class Routes extends Component{
                 <Route exact path='/foodmenu' component={FoodMenu} ></Route>
                 <Route exact path='/userlist' component={UserList} ></Route>
                 <Route exact path='/cart' component={Cart} ></Route>
+                <Route exact path='/aboutus' component={AboutUs} ></Route>
+                <Route exact path='/foodlist' component={FoodList} ></Route>
+                <Route exact path='/order' component={Order} ></Route>
+                <Route exact path='/orderlist' component={OrderList} ></Route>
             </Router>
         );
     }

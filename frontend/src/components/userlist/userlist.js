@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './userlist.css';
 import {Table, Button} from 'react-bootstrap';
 
-class FoodCard extends Component{
+class UserList extends Component{
 
     constructor(props){
         super(props);
@@ -47,7 +47,8 @@ class FoodCard extends Component{
             <Table striped bordered hover variant="light" className="user-table">
                 <thead>
                     <tr>
-                    <th>Username</th>
+                    <th>ID</th>
+                    <th>Email</th>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Mobile No</th>
@@ -55,13 +56,14 @@ class FoodCard extends Component{
                     <th>Pincode</th>
                     <th>City</th>
                     <th>State</th>
-                    <td></td>
+                    <th>Operation</th>
                     </tr>
                 </thead>
                 <tbody>
                 {
                     this.state.Users.map(User => (
                       <tr>
+                        <td>{User._id}</td>
                         <td>{User.email}</td>
                         <td>{User.firstName}</td>
                         <td>{User.lastName}</td>
@@ -80,4 +82,4 @@ class FoodCard extends Component{
     }
 }
 
-export default FoodCard;
+export default UserList;

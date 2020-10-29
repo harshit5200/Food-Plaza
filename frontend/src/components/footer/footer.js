@@ -13,7 +13,7 @@ class Footer extends Component{
                         <p>An Online Food Delivery System with good <br/> quality foods and fast services.</p>
                         <p>Some Useful Links</p>
                         <a href="/foodmenu">Menu</a><br/>
-                        <a href="#">About Us</a>
+                        <a href="/aboutus">About Us</a>
                     </div>
                     <div className="col-lg-4">
                         <h6>Social Links</h6><br/>

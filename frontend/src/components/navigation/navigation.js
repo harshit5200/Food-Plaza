@@ -18,9 +18,9 @@ class AppNavbar extends Component{
                         <Nav>
                             <Nav.Link href = "/" className="nav">Home</Nav.Link>
                             <Nav.Link href = "/foodmenu" className="nav">Menu</Nav.Link>
-                            <Nav.Link href = "#" className="nav">Order</Nav.Link>
-                            <Nav.Link href = "#" className="nav">About Us</Nav.Link>
-                            <Nav.Link href="#">
+                            <Nav.Link href = "/order" className="nav">Order</Nav.Link>
+                            <Nav.Link href = "/aboutus" className="nav">About Us</Nav.Link>
+                            <Nav.Link>
                             <Button className="logout-btn" onClick={() => this.context.logout()}>Logout</Button>
                         </Nav.Link>       
                         
@@ -41,7 +41,7 @@ class AppNavbar extends Component{
                         <Nav>
                             <Nav.Link href = "/" className="nav">Home</Nav.Link>
                             <Nav.Link href = "/foodmenu" className="nav">Menu</Nav.Link>
-                            <Nav.Link href = "#" className="nav">About Us</Nav.Link>
+                            <Nav.Link href = "/aboutus" className="nav">About Us</Nav.Link>
                             <Nav.Link href = "/login" className="nav">Sign In</Nav.Link> 
                             <Nav.Link href = "/register" className="nav">Sign Up</Nav.Link>   
                             <Nav.Link href="/cart"><FeatherIcon icon="shopping-cart" size="24" className="cart-icon"/></Nav.Link>  

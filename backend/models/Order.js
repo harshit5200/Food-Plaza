@@ -3,8 +3,9 @@ const Schema = mongoose.Schema;
 
 
 const OrderSchema = new Schema({
-    userEmail:{ 
-        type: String 
+    userID:{ 
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'UserSchema' 
     },
     
     foodID:{
@@ -12,11 +13,11 @@ const OrderSchema = new Schema({
         ref: 'FoodMenuSchema'
     },
 
-    foodQuantity: {
+    orderQuantity: {
         type: Number
     },
 
-    orderPrice:{
+    orderPrice: {
         type: Number
     },
 
@@ -25,9 +26,6 @@ const OrderSchema = new Schema({
         default: Date.now()
     },
 
-    paymentMethod: {
-        type: String
-    }
 });
 
-module.exports = Food = mongoose.model('order',OrderSchema);
+module.exports = Order = mongoose.model('order',OrderSchema);

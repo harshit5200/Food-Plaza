@@ -27,7 +27,6 @@ class FoodForm extends Component{
     }
 
     onSubmit = e => {
-        console.log(this.state.foodRating, this.state.foodType)
         var fd = new FormData();
         fd.append("foodName", this.state.foodName);
         fd.append("foodType", this.state.foodType);

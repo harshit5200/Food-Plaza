@@ -15,7 +15,7 @@ class AuthContextProvider extends Component{
                 isAuthenticated: true,
                 currentUser: res.data.user.firstName,
                 currentEmail: res.data.user.email,
-                currentUserID: res.data._id
+                currentID: res.data.user.id
             })
         }
     }
@@ -25,7 +25,8 @@ class AuthContextProvider extends Component{
         this.setState({
             isAuthenticated: false,
             currentUser: null,
-            currentEmail: null
+            currentEmail: null,
+            currentID: null
         })
         localStorage.removeItem('itemsArray')
         window.location.reload();

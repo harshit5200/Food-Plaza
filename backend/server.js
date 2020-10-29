@@ -25,7 +25,16 @@ app.use('/api/foodmenu',require('./routes/api/FoodMenu'));
 app.use('/api/retrievefood',require('./routes/api/RetrieveFood'));
 app.use('/api/retrieveuser',require('./routes/api/RetrieveUser'));
 app.use('/api/deleteuser',require('./routes/api/DeleteUser'));
+app.use('/api/deletefood',require('./routes/api/DeleteFood'));
+app.use('/api/filtername',require('./routes/api/FilterName'));
+app.use('/api/filterrating',require('./routes/api/FilterRating'));
+app.use('/api/filterprice',require('./routes/api/FilterPrice'));
+app.use('/api/searchfood',require('./routes/api/SearchFood'));
+app.use('/api/confirmorder',require('./routes/api/ConfirmOrder'));
+app.use('/api/retrieveorder',require('./routes/api/RetrieveOrder'));
+app.use('/api/deleteorder',require('./routes/api/DeleteOrder'));
 app.use(express.static(__dirname + '/public'));
+
 
 const port = process.env.PORT || 5000;
 

@@ -43,6 +43,8 @@ router.post('/', (req,res) => {
                         success: true,
                         message: "Food Saved!",
             })    
+        }).catch(err => {
+            console.log(err)
         })
     })
 })

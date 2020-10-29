@@ -1,0 +1,28 @@
+.about-body{
+    font-family: 'Baloo Da 2';
+}
+.about-head1{
+    margin-top: 5%;
+    margin-left: 20%;
+}
+.about-img{
+    width: 100%;
+    height: 35rem;
+    object-fit: cover;
+}
+.sub-head1{
+    margin-left: 40%;
+    margin-bottom: 5%;
+}
+.user-count{
+    font-size: 3rem !important;
+    margin-left: 5%;
+}
+.order-count{
+    font-size: 3rem !important;
+    margin-left: 5%;
+}
+.side-img{
+    width: 100%;
+    border-radius: 5px;
+}

@@ -26,14 +26,14 @@
 }
 .searchBar{
     margin-top: 4%;
-    margin-left: 12% !important;
+    margin-left: 11% !important;
     border: 1px solid #FFD344;
-    width: 70%;
+    width: 30%;
     box-shadow: aliceblue 6px 6px 6px;
 }
 
 .searchInput{
-    width: 95%;
+    width: 80%;
     height: 3rem;
     text-indent: 1%;
     border: none;
@@ -46,8 +46,21 @@
 .searchBtn{
     border: none;
     background-color: transparent;
-    width: 5%;
+    width: 10%;
 }
 .searchIcon{
     color: #FFD344;
+}
+.filter-bar{
+    font-family: 'Baloo Da 2';
+    margin-top: 4%;
+    margin-left: 10%;
+    border: 1px solid #FFD344;
+    width: 30%;
+    box-shadow: aliceblue 6px 6px 6px;
+    height: 3rem;
+}
+.filterItem{
+    width: 100%;
+    border: none;
 }

@@ -20,14 +20,28 @@ class Cart extends Component{
     }
 
     orderNow(){
+      if(this.context.isAuthenticated){
         confirmAlert({
             title: 'Food Plaza',
             message: 'Confirm Your Order',
             buttons: [
               {
                 label: 'CONFIRM',
-                onClick: () => {
-                    // Order Your Food Now 
+                onClick: () => {   
+                  var cartList = JSON.parse(localStorage.getItem('itemsArray'))
+                  for(var i=0; i<cartList.length; i++){
+                    var fd = new FormData();
+                    fd.append("userID", this.context.currentID);
+                    fd.append("foodID", cartList[i].idNo);
+                    fd.append("orderQuantity", cartList[i].limit);
+                    fd.append("orderPrice", Number(cartList[i].limit)*Number(cartList[i].foodPrice));
+                    fetch("http://localhost:5000/api/confirmorder",{
+                    method: 'POST',
+                    body:fd,
+                  });
+                  }
+                  localStorage.removeItem("itemsArray");
+                  window.location.reload();
                 }
               },
               {
@@ -35,6 +49,10 @@ class Cart extends Component{
               }
             ]
           }); 
+        }
+        else{
+          window.location.href="/login"
+        }
     }
     removefromCart(){
         confirmAlert({
@@ -55,12 +73,12 @@ class Cart extends Component{
           });
     }
     componentDidMount(){
-        var price = JSON.parse(localStorage.getItem('itemsArray'))
+        var orderDetails = JSON.parse(localStorage.getItem('itemsArray'))
         var i;
         var calPrice = 0;
-        if(price){
-        for (i = 0; i < price.length; i++) {
-        calPrice += Number(price[i].foodPrice) * Number(price[i].limit);
+        if(orderDetails){
+        for (i = 0; i < orderDetails.length; i++) {
+        calPrice += Number(orderDetails[i].foodPrice) * Number(orderDetails[i].limit);
         }
         this.setState({
             totalPrice: calPrice

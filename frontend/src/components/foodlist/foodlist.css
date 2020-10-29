@@ -1,6 +1,10 @@
-.user-table{
+.food-table{
     width: 70% !important;
     margin-left: 15%;
     margin-top: 5%;
     font-family: 'Baloo Da 2';
+}
+
+.img-list{
+    width: 5rem;
 }

@@ -7,3 +7,16 @@
 .rating-icon{
     color: #FFD344;
 }
+
+.food-rating-value{
+    background-color: #000000;
+    color: #FFFFFF;
+    width: 20%;
+    visibility:hidden;
+    margin-left: 41%;
+    margin-top: 1%;
+}
+
+.food-rating:hover .food-rating-value{
+    visibility: visible !important;
+}
