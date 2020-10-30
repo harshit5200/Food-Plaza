@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//Food Schema
-
 const FoodMenuSchema = new Schema({
     foodName: {
         type:String,

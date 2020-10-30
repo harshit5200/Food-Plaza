@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const Food = require('../../models/Food');
+const Order = require('../../models/Order');
 const ObjectId = require("mongodb").ObjectID;
 
 const router = express.Router();
@@ -9,10 +9,13 @@ const router = express.Router();
 router.use(cors());
 router.use(bodyParser.urlencoded({extended: false}));
 
-router.delete('/', (req,res) => {
-    Food.deleteOne({_id:ObjectId(req.body._id)})
-        .then(res.send("Food Deleted!"))
-            .catch(res.send("Food Doesn't Deleted"))
+router.put('/', (req,res) => {
+    Order.updateOne({_id:ObjectId(req.body._id)}, 
+        {$set: {
+            isApproved:"true"
+        }
+    }).then(res.send("Order Updated!"))
+        .catch(res.send("Order Doesn't Updated"))
 });
 
 module.exports = router;

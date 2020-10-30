@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const config = require('config');
 const express = require('express');
 const User = require('../../models/User');
+
 const router = express.Router();
 
 router.post('/', (req, res) => {
@@ -28,41 +29,40 @@ router.post('/', (req, res) => {
                             email: user.email
                         },
                         success: true
+                            })
+                        }
+                    )
+                })
+                .catch((err) => {
+                    res.json({
+                        message: 'User Not Found!',
+                        success: false
                     })
-                }
-            )
-        })
-        .catch((err) => {
+                })
+            }   
+        catch(e){
             res.json({
-                message: 'User Not Found!',
+                message: 'Token Invalid',
                 success: false
-            })
-        })
-    }
-    catch(e){
-        res.json({
-            message: 'Token Invalid',
-            success: false
-            })
+                })
+            }
         }
-    }
 
-else{
-    // Check Validation
-    if(!email || !password){
-        return res.json({
-            message:"Please Enter All Required Details",
-            success: false
-        })
-    }
-
-    User.findOne({email}).then(user => {
-        if (!user){
+    else{
+        if(!email || !password){
             return res.json({
-                message: "User Doesn't Exists!",
+                message:"Please Enter All Required Details",
                 success: false
             })
         }
+
+        User.findOne({email}).then(user => {
+            if (!user){
+                return res.json({
+                    message: "User Doesn't Exists!",
+                    success: false
+                })
+            }
         bcrypt.compare(password, user.password).then(ismMatch => {
             if(!ismMatch){
                 return res.json({
@@ -79,12 +79,12 @@ else{
                     user: {
                         id: user.id,
                         email: user.email,
-                    }
+                        }
+                    })
                 })
             })
         })
-    })
-}
+    }
 })
 
 module.exports = router;

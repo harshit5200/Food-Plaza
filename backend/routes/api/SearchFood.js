@@ -1,9 +1,10 @@
 const express = require('express');
 const Food = require('../../models/Food');
 const cors = require("cors");
-const router = express.Router();
 const fileUpload = require('express-fileupload');
 const bodyParser = require("body-parser");
+
+const router = express.Router();
 
 router.use(bodyParser.urlencoded({extended: false}));
 router.use(fileUpload());

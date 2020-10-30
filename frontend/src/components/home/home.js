@@ -9,6 +9,19 @@ import Footer from '../footer/footer'
 
 class Home extends Component{
 
+    constructor(props){
+        super(props)
+        this.state = {
+            cartCount: 0
+        }
+    }
+
+    componentDidMount(){
+        if(localStorage.getItem('itemsArray')){
+            this.setState({cartCount:JSON.parse(localStorage.getItem('itemsArray')).length})
+        }
+    }
+
     pageTransform(){
         window.location.href="/foodmenu "
     }
@@ -16,7 +29,7 @@ class Home extends Component{
     render(){
         return(
             <div className="home-body">
-                <AppNavbar></AppNavbar>
+                <AppNavbar cartItemCount = {this.state.cartCount}></AppNavbar>
                 <Carousel>
                     <Carousel.Item className="carousel-height">
                         <img 
@@ -40,7 +53,7 @@ class Home extends Component{
                         />
                     </Carousel.Item>
                 </Carousel>
-                <button className="home-menu-btn" onClick={this.pageTransform.bind(this)}>Hungry? Grab Your Food</button>
+                <button className="home-menu-btn" onClick={this.pageTransform.bind(this)}>Hungry? Explore Now!</button>
                 <Footer></Footer>
             </div>
         );

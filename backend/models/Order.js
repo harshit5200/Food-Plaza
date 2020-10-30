@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
 const OrderSchema = new Schema({
     userID:{ 
         type: mongoose.Schema.Types.ObjectId,
@@ -19,6 +18,11 @@ const OrderSchema = new Schema({
 
     orderPrice: {
         type: Number
+    },
+
+    isApproved: {
+        type: String,
+        default: ""
     },
 
     orderDate:{

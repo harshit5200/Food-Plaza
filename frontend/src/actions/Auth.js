@@ -9,7 +9,6 @@ const config = {
 export const login = (data, callback) => {
     const {email, password, token} = data;
 
-
     const body = JSON.stringify({email, password, token})
 
     axios.post('/api/auth', body, config)
@@ -26,7 +25,9 @@ export const login = (data, callback) => {
 
 export const register = (user, callback) => {
     const {email, firstName, lastName, password, mobileNo, address, city, state, pincode} = user;
+
     const body = JSON.stringify({email, firstName, lastName, password, mobileNo, address, city, state, pincode})
+    
     axios.post('/api/user', body, config)
     .then(res => {
         if(res.data.success){

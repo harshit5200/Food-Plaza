@@ -5,8 +5,8 @@
     font-family: "Baloo Da 2";
     margin-left: 4%;
     margin-top: 3%;
+    height: 40%;
 }
-
 .food-card-name .food-card-subtitle{
     font-family: "Baloo Da 2";
 }
@@ -39,4 +39,11 @@
 }
 .food-card-quantity{
     font-weight: 600;
+}
+.food-card-image{
+    height: 10rem !important;
+    object-fit: cover;
+}
+.food-card-desc{
+    height: 10%;
 }

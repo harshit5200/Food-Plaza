@@ -15,7 +15,8 @@ class Cart extends Component{
         super(props);
         this.state = {
             counter: 1,
-            totalPrice: null
+            totalPrice: null,
+            cartCount:0
         }
     }
 
@@ -38,7 +39,7 @@ class Cart extends Component{
                     fetch("http://localhost:5000/api/confirmorder",{
                     method: 'POST',
                     body:fd,
-                  });
+                    });
                   }
                   localStorage.removeItem("itemsArray");
                   window.location.reload();
@@ -52,8 +53,9 @@ class Cart extends Component{
         }
         else{
           window.location.href="/login"
-        }
+      }
     }
+
     removefromCart(){
         confirmAlert({
             title: 'Food Plaza',
@@ -70,9 +72,13 @@ class Cart extends Component{
                 label: 'NO'
               }
             ]
-          });
+        });
     }
+
     componentDidMount(){
+        if(localStorage.getItem('itemsArray')){
+        this.setState({cartCount:JSON.parse(localStorage.getItem('itemsArray')).length})
+        }
         var orderDetails = JSON.parse(localStorage.getItem('itemsArray'))
         var i;
         var calPrice = 0;
@@ -83,14 +89,15 @@ class Cart extends Component{
         this.setState({
             totalPrice: calPrice
         })
+      }
     }
-    }
+
     render(){
       if(localStorage.getItem('itemsArray')){
             return(
               <div>
                 <div className="cart-card">
-                <AppNavbar></AppNavbar>
+                <AppNavbar cartItemCount = {this.state.cartCount}></AppNavbar>
                 <div className="container">
                 <br />
                 <h4 className="amount-to-pay">Total Amount to Pay: Rs {this.state.totalPrice}</h4>
@@ -100,12 +107,11 @@ class Cart extends Component{
                 {
                 JSON.parse(localStorage.getItem('itemsArray')).map(Cart => (
                     <Card style={{ width: '18rem' }} className="food-card" key={Cart.idNo} >
-                    <Card.Img variant="top" src={`http://localhost:5000/images/${Cart.foodImage}`}/>
+                    <Card.Img className="food-card-image" variant="top" src={`http://localhost:5000/images/${Cart.foodImage}`}/>
                     <Card.Body>
                         <Card.Title className="food-card-name">{Cart.foodName}</Card.Title>
                         <Card.Text className="food-card-type">{Cart.foodType}</Card.Text>
                         <Rating rating={Cart.foodRating}></Rating>
-                        <br/>
                         <Card.Text className="food-card-price">₹ {Cart.foodPrice}</Card.Text>
                         <Card.Text className="food-card-limit">Quantity: {Cart.limit}</Card.Text>
                     </Card.Body>
@@ -119,13 +125,13 @@ class Cart extends Component{
                 </div>
             );
         }
-        else{
-            return(
-                <div className="alt-cart">
-                <AppNavbar></AppNavbar>
-                <img src={emptyCart} className="cart-image" alt="Empty Cart" />
-                <Footer></Footer>
-                </div> 
+      else{
+          return(
+              <div className="alt-cart">
+              <AppNavbar></AppNavbar>
+              <img src={emptyCart} className="cart-image" alt="Empty Cart" />
+              <Footer></Footer>
+              </div> 
             );
         }
     }

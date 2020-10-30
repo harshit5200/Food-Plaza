@@ -21,6 +21,7 @@ class FoodMenu extends Component{
             foodImage:'',
             message: null,
             variant: "success", 
+            cartCount:0
         }
       }
 
@@ -37,12 +38,15 @@ class FoodMenu extends Component{
           fetch("http://localhost:5000/api/searchfood",{
             method: 'POST',
             body:fd,
-        }).then(Foods => Foods.json())
+          }).then(Foods => Foods.json())
             .then(Foods => this.setState({Foods:Foods}))
       }
     }
 
     componentDidMount(){
+      if(localStorage.getItem('itemsArray')){
+        this.setState({cartCount:JSON.parse(localStorage.getItem('itemsArray')).length})
+      }
         fetch('http://localhost:5000/api/retrievefood')
           .then(Foods => Foods.json())
             .then(Foods => this.setState({Foods:Foods}))
@@ -67,13 +71,13 @@ class FoodMenu extends Component{
     }
 
     cancelSearch(){
-      window.location.reload();
+      this.componentDidMount()
     }
 
     render(){
         return(
             <div className="food-menu-page">
-            <AppNavbar></AppNavbar>
+            <AppNavbar cartItemCount = {this.state.cartCount}></AppNavbar>
             <div className="menu-title container-fluid">
             <div className="row">
             <div className="col-lg-8">

@@ -35,21 +35,49 @@ class Routes extends Component{
     }
 
     render(){
-        return(
-            <Router>
-                <Route exact path='/' component={Home} ></Route>
-                <Route exact path='/register' component={Register} ></Route>
-                <Route exact path='/login' component={Login} ></Route>
-                <Route exact path='/savefood' component={FoodForm} ></Route>
-                <Route exact path='/foodmenu' component={FoodMenu} ></Route>
-                <Route exact path='/userlist' component={UserList} ></Route>
-                <Route exact path='/cart' component={Cart} ></Route>
-                <Route exact path='/aboutus' component={AboutUs} ></Route>
-                <Route exact path='/foodlist' component={FoodList} ></Route>
-                <Route exact path='/order' component={Order} ></Route>
-                <Route exact path='/orderlist' component={OrderList} ></Route>
-            </Router>
-        );
+        if(this.context.isAuthenticated && this.context.currentEmail === 'admin@foodplaza.in'){
+            return(
+                <Router>
+                    <Route exact path='/' component={Home} ></Route>
+                    <Route exact path='/register' component={Register} ></Route>
+                    <Route exact path='/login' component={Login} ></Route>
+                    <Route exact path='/foodmenu' component={FoodMenu} ></Route>
+                    <Route exact path='/cart' component={Cart} ></Route>
+                    <Route exact path='/aboutus' component={AboutUs} ></Route>
+                    <Route exact path='/order' component={Order} ></Route>
+                    <Route exact path='/savefood' component={FoodForm} ></Route>
+                    <Route exact path='/userlist' component={UserList} ></Route>
+                    <Route exact path='/foodlist' component={FoodList} ></Route>
+                    <Route exact path='/orderlist' component={OrderList} ></Route>
+                </Router>
+            );
+        }
+        else if(this.context.isAuthenticated){
+            return(
+                <Router>
+                    <Route exact path='/' component={Home} ></Route>
+                    <Route exact path='/register' component={Register} ></Route>
+                    <Route exact path='/login' component={Login} ></Route>
+                    <Route exact path='/foodmenu' component={FoodMenu} ></Route>
+                    <Route exact path='/cart' component={Cart} ></Route>
+                    <Route exact path='/aboutus' component={AboutUs} ></Route>
+                    <Route exact path='/order' component={Order} ></Route>
+                    <Route exact path='/savefood' component={FoodForm} ></Route>
+                </Router>
+            );
+        }
+        else{
+            return(
+                <Router>
+                    <Route exact path='/' component={Home} ></Route>
+                    <Route exact path='/register' component={Register} ></Route>
+                    <Route exact path='/login' component={Login} ></Route>
+                    <Route exact path='/foodmenu' component={FoodMenu} ></Route>
+                    <Route exact path='/cart' component={Cart} ></Route>
+                    <Route exact path='/aboutus' component={AboutUs} ></Route>
+                </Router>
+            );
+        }
     }
 }
 

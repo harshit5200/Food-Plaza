@@ -21,7 +21,14 @@ class Register extends Component{
         city: null,
         state: null,
         pincode: null,
-        token: localStorage.getItem('token')
+        token: localStorage.getItem('token'),
+        cartCount:0
+    }
+
+    componentDidMount(){
+        if(localStorage.getItem('itemsArray')){
+            this.setState({cartCount:JSON.parse(localStorage.getItem('itemsArray')).length})
+        }
     }
 
     onChange = e => {
@@ -62,7 +69,7 @@ class Register extends Component{
     render(){
         return(
             <div className="register-form">
-            <AppNavbar></AppNavbar>
+            <AppNavbar cartItemCount = {this.state.cartCount}></AppNavbar>
             <Form onSubmit = {this.onSubmit} id = 'signup' className="register-box">
             <Form.Group>
                 <h4 className="register-subtitle">Be The Part Of Our Family.</h4>

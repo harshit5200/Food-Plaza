@@ -29,7 +29,7 @@ class AuthContextProvider extends Component{
             currentID: null
         })
         localStorage.removeItem('itemsArray')
-        window.location.reload();
+        window.location.href="/login";
     }
 
     render(){

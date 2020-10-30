@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './foodlist.css';
 import {Table, Button} from 'react-bootstrap';
+import AppNavbar from '../navigation/navigation';
 
 class FoodList extends Component{
 
@@ -13,16 +14,18 @@ class FoodList extends Component{
             foodDescription:'',
             foodRating:'',
             foodPrice:'',
+            cartCount:0
         }
-      }
-
+    }
 
     componentDidMount(){
+      if(localStorage.getItem('itemsArray')){
+        this.setState({cartCount:JSON.parse(localStorage.getItem('itemsArray')).length})
+      }
         fetch('http://localhost:5000/api/retrievefood')
           .then(Foods => Foods.json())
             .then(Foods => this.setState({Foods:Foods}))
-      }
-
+    }
 
     deleteUser(id, event){
         event.preventDefault();
@@ -36,10 +39,12 @@ class FoodList extends Component{
         });
 
         window.location.reload();
-      }
+    }
 
     render(){
         return(
+          <div>
+          <AppNavbar cartItemCount = {this.state.cartCount}></AppNavbar>
             <Table striped bordered hover variant="light" className="food-table">
                 <thead>
                     <tr>
@@ -70,6 +75,7 @@ class FoodList extends Component{
                   }
                 </tbody>
             </Table>
+          </div>
         );
     }
 }

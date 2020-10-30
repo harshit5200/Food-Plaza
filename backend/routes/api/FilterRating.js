@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         }
     })
     .catch(() => {
-        console.log("Getting Error in Fetching Food From Database!")
+        res.send("Getting Error in Filtering On The Basis Of Rating!")
     })
 })
 

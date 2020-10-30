@@ -1,7 +1,9 @@
 const express = require('express');
 const Order = require('../../models/Order');
 const cors = require("cors");
+
 const router = express.Router();
+
 const fileUpload = require('express-fileupload');
 const bodyParser = require("body-parser");
 
@@ -17,15 +19,15 @@ router.post('/', (req,res) => {
             success: false
         })
     }
-        const newOrder = new Order({
-            userID, foodID, orderQuantity, orderPrice
-        })
-        newOrder.save().then(order => {
-                    res.json({
-                        success: true,
-                        message: "Food Saved!",
-            })    
-        })
+    const newOrder = new Order({
+        userID, foodID, orderQuantity, orderPrice
+    })
+    newOrder.save().then(order => {
+        res.json({
+            success: true,
+            message: "Food Saved!",
+        })    
+    })
 })
 
 module.exports = router;

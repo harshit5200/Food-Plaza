@@ -9,10 +9,23 @@ import FeatherIcon from 'feather-icons-react';
 
 class AboutUs extends Component{
 
+    constructor(props){
+        super(props);
+        this.state = {
+            cartCount:0
+        }
+    }
+
+    componentDidMount(){
+        if(localStorage.getItem('itemsArray')){
+            this.setState({cartCount:JSON.parse(localStorage.getItem('itemsArray')).length})
+        }
+    }
+
     render(){
         return(
             <div className="about-body">
-                <AppNavbar></AppNavbar>
+                <AppNavbar cartItemCount = {this.state.cartCount}></AppNavbar>
                 <img src={AboutImg} alt="FoodImage" className="about-img"></img>
                 <div className="container">
                     <h1 className="about-head1">Our Aim Is To Provide High Quality Food</h1>
@@ -27,7 +40,7 @@ class AboutUs extends Component{
                         <li>Safe and Secure Delivery</li>
                         <li>Resolve Every Possible Query</li>
                         <li>Hygienic Processing of Food</li>
-                    </ul><br/><br />
+                    </ul><br/><br/>
                     <h1>We Have Grown A Lot!</h1><br/>
                     <div className="row">
                     <div className="col-lg-6">
@@ -47,7 +60,7 @@ class AboutUs extends Component{
                     </div>
                     </div>
                 </div>
-            <Footer></Footer>
+                <Footer></Footer>
             </div>
         );
     }

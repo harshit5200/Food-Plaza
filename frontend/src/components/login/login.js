@@ -12,7 +12,14 @@ class Login extends Component{
     state = {
         message: null,
         variant: "success",
-        token: localStorage.getItem('token')
+        token: localStorage.getItem('token'),
+        cartCount:0
+    }
+
+    componentDidMount(){
+        if(localStorage.getItem('itemsArray')){
+            this.setState({cartCount:JSON.parse(localStorage.getItem('itemsArray')).length})
+        }
     }
 
     onChange = e => {
@@ -53,7 +60,7 @@ class Login extends Component{
     render(){
         return(
             <div className="login-form">
-            <AppNavbar></AppNavbar>
+            <AppNavbar cartItemCount = {this.state.cartCount}></AppNavbar>
                 <Form onSubmit={this.onSubmit} className="login-box" id="login">
                 <Form.Group>
                     <h1 className="login-title">Food Plaza</h1>

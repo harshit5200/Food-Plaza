@@ -32,7 +32,9 @@ app.use('/api/filterprice',require('./routes/api/FilterPrice'));
 app.use('/api/searchfood',require('./routes/api/SearchFood'));
 app.use('/api/confirmorder',require('./routes/api/ConfirmOrder'));
 app.use('/api/retrieveorder',require('./routes/api/RetrieveOrder'));
-app.use('/api/deleteorder',require('./routes/api/DeleteOrder'));
+app.use('/api/updateorder',require('./routes/api/UpdateOrder'));
+app.use('/api/orderupdate',require('./routes/api/OrderUpdate'));
+app.use('/api/getorder',require('./routes/api/GetOrder'));
 app.use(express.static(__dirname + '/public'));
 
 

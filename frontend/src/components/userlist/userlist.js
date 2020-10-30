@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './userlist.css';
 import {Table, Button} from 'react-bootstrap';
+import AppNavbar from '../navigation/navigation';
 
 class UserList extends Component{
 
@@ -15,13 +16,17 @@ class UserList extends Component{
             address:'',
             pincode:'',
             city:'',
-            state:''
+            state:'',
+            cartCount:0
           
         }
       }
 
 
     componentDidMount(){
+      if(localStorage.getItem('itemsArray')){
+      this.setState({cartCount:JSON.parse(localStorage.getItem('itemsArray')).length})
+      }
         fetch('http://localhost:5000/api/retrieveuser')
           .then(Users => Users.json())
             .then(Users => this.setState({Users:Users}))
@@ -44,6 +49,8 @@ class UserList extends Component{
 
     render(){
         return(
+          <div>
+            <AppNavbar cartItemCount = {this.state.cartCount}></AppNavbar>
             <Table striped bordered hover variant="light" className="user-table">
                 <thead>
                     <tr>
@@ -78,6 +85,7 @@ class UserList extends Component{
                   }
                 </tbody>
             </Table>
+          </div>
         );
     }
 }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Form, Button , Alert} from 'react-bootstrap';
+import AppNavbar from '../navigation/navigation';
 import './savefood.css';
 
 class FoodForm extends Component{
@@ -11,7 +12,8 @@ class FoodForm extends Component{
         foodRating:null,
         foodDescription:null,
         foodPrice:null,
-        foodImage:null
+        foodImage:null,
+        cartCount:0
     }
 
 
@@ -24,6 +26,12 @@ class FoodForm extends Component{
     fileUpload = e => {
         this.setState({[e.target.name] : e.target.files[0]});
         
+    }
+
+    componentDidMount(){
+        if(localStorage.getItem('itemsArray')){
+            this.setState({cartCount:JSON.parse(localStorage.getItem('itemsArray')).length})
+        }
     }
 
     onSubmit = e => {
@@ -47,6 +55,7 @@ class FoodForm extends Component{
     render(){
         return(
             <div>
+            <AppNavbar cartItemCount = {this.state.cartCount}></AppNavbar>
             <div className="fill-space"></div>
             <div className="food-form">
             <Form onSubmit = {this.onSubmit} id = 'signup' className="food-box" encType="multipart/form-data">

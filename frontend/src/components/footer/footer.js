@@ -21,15 +21,17 @@ class Footer extends Component{
                         <FeatherIcon icon="youtube" className="yt"></FeatherIcon>
                         <FeatherIcon icon="instagram" className="insta"></FeatherIcon>
                         <FeatherIcon icon="facebook" className="fb"></FeatherIcon>
-                        </div>
+                        </div><br></br>
+                        <h6>Email Address:</h6>
+                        <p>admin@foodplaza.in</p>
                     </div>
                     <div className="col-lg-3">
                         <h5>Contact Details</h5>
-                        <p>07XX-278XXX4</p>
+                        <p>8770780280</p>
                         <h5>Address Details</h5>
-                        <p>XXX4 ROXX OLX NAGXX</p>
+                        <p>Dr. Ambedkar Colony</p>
                         <p>Bhopal, Madhya Pradesh</p>
-                        <p>India-462XX3</p>
+                        <p>India-462023</p>
                     </div>
                 </div>
             </div>

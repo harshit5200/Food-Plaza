@@ -2,12 +2,14 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const config = require('config');
 const express = require('express');
+
 const router = express.Router();
 
 const User = require('../../models/User');
 
 router.post('/', (req, res) => {
     const { email, firstName, lastName, password, mobileNo, address, city, state, pincode } = req.body;
+    
     if (!email || !firstName || !lastName || !password || !mobileNo || !address || !city || !state || !pincode){
         res.json({
             success: false,
